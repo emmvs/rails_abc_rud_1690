@@ -1,0 +1,10 @@
+<div class="container mt-2">
+  <h1>Artist: <%= @artist.name %></h1>
+  <li><%= @artist.year_of_birth %></li>
+  <li><%= @artist.skill %></li>
+  <img class="w-25" src="<%= @artist.img_url %>" alt="Image of <%= @artist.name %>">
+  <%= link_to "Delete",
+      artist_path(@artist.id),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+  %>
+</div>

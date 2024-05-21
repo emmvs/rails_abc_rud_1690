@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_072652) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_072914) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.string "country"
     t.string "img_url"
     t.integer "year_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "skill"
   end
 
 end

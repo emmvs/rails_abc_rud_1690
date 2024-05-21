@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Root Page
+  root 'artists#index'
+  # Index of all artists
+  get '/artists', to: 'artists#index'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Create new Artist (2 Requests, get the form & post new item)
+  get '/artists/new', to: 'artists#new'
+  post '/artists', to: 'artists#create'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Show one artist 
+  get '/artists/:id', to: 'artists#show', as: 'artist'
+
+  # Edit & Update the artist
+  get '/artists/:id/edit', to: 'artists#edit'
+  patch '/artists/:id', to: 'artists#update'
+
+  # Delete
+  delete '/artists/:id', to: 'artists#destroy'
 end
